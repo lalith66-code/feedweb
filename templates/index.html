@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Portal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Feedback Portal</h2>
+
+        <form action="/" method="POST">
+            <label for="role">You are a:</label>
+            <select name="role" id="role" required>
+                <option value="" disabled selected>Select</option>
+                <option value="Parent">Parent</option>
+                <option value="Student">Student</option>
+                <option value="Teacher">Teacher</option>
+            </select>
+
+            <div id="parentFields" class="hidden">
+                <label>Parent's Name:</label>
+                <input type="text" name="parent_name" required>
+                <label>Child's Name:</label>
+                <input type="text" name="child_name" required>
+                <label>Child's Class:</label>
+                <input type="number" name="child_class" required>
+            </div>
+
+            <div id="studentFields" class="hidden">
+                <label>Student Name:</label>
+                <input type="text" name="student_name" required>
+                <label>Student Class:</label>
+                <input type="number" name="student_class" required>
+                <label>Student Orientation:</label>
+                <input type="text" name="student_orientation" required>
+            </div>
+
+            <div id="teacherFields" class="hidden">
+                <label>Teacher Name:</label>
+                <input type="text" name="teacher_name" required>
+            </div>
+
+            <label for="rating">Rating:</label>
+            <select name="rating" id="rating" required>
+                <option value="" disabled selected>Select Rating</option>
+                <option value="1">1 Star</option>
+                <option value="2">2 Stars</option>
+                <option value="3">3 Stars</option>
+                <option value="4">4 Stars</option>
+                <option value="5">5 Stars</option>
+            </select>
+
+            <label>Comment:</label>
+            <textarea name="comment" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
